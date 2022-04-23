@@ -20,6 +20,11 @@ nav {
   width: 100vw;
 }
 
+h1 {
+  font-size: 30px;
+  padding-left: 10px;
+}
+
 main {
   display: flex;
   flex-wrap: wrap;
@@ -31,6 +36,7 @@ main {
 }
 
 .main-info {
+  /* display: flex; */
   height: 90vh;
   width: 79vw;
 }
@@ -39,6 +45,11 @@ main {
   margin: 8px;
   width: 78vw;
   height: 20vh;
+}
+
+.card-titles {
+  margin: 8px;
+  font-size: 25px;
 }
 
 .scrollable {
