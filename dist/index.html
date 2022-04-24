@@ -20,8 +20,17 @@
       <section>
         <input class="calendar" type="date" id="start" name="select-date" value="2022-01-22" min="2022-06-01">
       </section>
-      <section>
-        <button class="check-date-button">Check date for Rooms</button>
+      <sections>
+        <select class='room-drop-down' name="dropdown-room-types" id="room-dropdown">
+          <option value="choose" name="dropdown-room-types">Choose Room Type</option>
+          <option value="residential suite" name="dropdown-room-types">Residential Suite</option>
+          <option value="suite" name="dropdown-room-types">Suite</option>
+          <option value="junior suite" name="dropdown-room-types">Junior Suite</option>
+          <option value="single room" name="dropdown-room-types">Single Room</option>
+        </select>
+        <section>
+          <button class="check-date-button">Check date for Rooms</button>
+        </section>
       </section>
     </aside>
     </section>
