@@ -1,5 +1,5 @@
 * {
-  border: 1px solid black
+  border: 1px solid black;
 }
 
 html {
@@ -11,6 +11,9 @@ body {
   margin: 0px;
   height: 100vh;
   width: 100vw;
+  /* background-image: url('./images/hotel-overlook.jpg');
+  background-position: center; 
+  background-size: cover; */
   /* background: radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(252,70,107,1) 100%); */
 }
 
@@ -36,7 +39,6 @@ main {
 }
 
 .main-info {
-  /* display: flex; */
   height: 90vh;
   width: 79vw;
 }
@@ -44,7 +46,7 @@ main {
 .booking-card {
   margin: 8px;
   width: 78vw;
-  height: 20vh;
+  height: 32vh;
 }
 
 .card-titles {

@@ -34,6 +34,37 @@ class Customer {
         }, 0)
         return userTotalCost.toFixed(2)
     }
+
+    filterByDate(hotel, calendar) {
+        let roomsTaken = hotel.bookings.filter((booking) => {
+            let formatDate = booking.date.split('/').join("-")
+             return formatDate === calendar.value
+         })
+         let totalRooms = []
+         hotel.rooms.forEach(hotelRoom => {
+             totalRooms.push(hotelRoom)
+         })
+         roomsTaken.forEach(taken => {
+            totalRooms.forEach((room, index) => {
+                 if (room.number === taken.roomNumber) {
+                     totalRooms.splice(index, 1)
+                 }
+             })
+         }) 
+        //  console.log(roomsTaken, 'rooms taken')
+        //  console.log(totalRooms, 'rooms avail')
+         return totalRooms
+    }
+
+    filterByRoom(roomTypeDropdown, totalRooms) {
+        if (roomTypeDropdown.value === 'choose') return
+        if (roomTypeDropdown.value !== 'choose') {
+           var filteredTotalRooms = totalRooms.filter(room => {
+                return room.roomType === roomTypeDropdown.value
+            })
+        }
+        return filteredTotalRooms
+    }
 }
 
 export default Customer;
