@@ -77,8 +77,6 @@ bookingSection.addEventListener("click", (event) => {
   }
 });
 
-// inputOne.value.substring(1,8) === "customer" && inputOne.value.substring(9, 10) === 40 && inputTwo === "overlook2021"
-
 // This is the JavaScript entry file - your code begins here
 // Do not delete or rename this file ********
 
@@ -114,7 +112,7 @@ function validateUser() {
 function createBookingCardByDateAndFilter(rooms) {
   bookingSection.innerHTML = "";
   rooms.forEach((room) => {
-    bookingSection.innerHTML += `<div class = 'booking-card'>
+    bookingSection.innerHTML += `<div class = 'booking-card' tabindex=0>
     <p>Room Number: ${room.number}</p>
     <p>Room Type: ${room.roomType}</p>
     <p>Bed Size: ${room.bedSize}</p>
@@ -129,7 +127,7 @@ function createBookingCardByDateAndFilter(rooms) {
 function createBookingCard() {
     bookingSection.innerHTML = ""
   currentUser.userBookings.forEach((booking) => {
-    bookingSection.innerHTML += `<div class = 'booking-card'>
+    bookingSection.innerHTML += `<div class = 'booking-card' tabindex=0>
         <p>Date: ${booking.date}</p>
         <p>Room Number: ${booking.roomNumber}</p>
         </div>`;
@@ -145,7 +143,7 @@ function createTotal() {
 }
 
 function updateSingleUser() {
-    hotel.sigleCustomerBookingUpdate(currentUser)
+    hotel.singleCustomerBookingUpdate(currentUser)
 }
 
 function createCustomer() {

@@ -51,8 +51,6 @@ class Customer {
                  }
              })
          }) 
-        //  console.log(roomsTaken, 'rooms taken')
-        //  console.log(totalRooms, 'rooms avail')
          return totalRooms
     }
 
