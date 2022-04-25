@@ -8,21 +8,36 @@ let dayjs = require("dayjs");
 let hotel;
 let currentUser;
 let test = document.querySelector(".test-button");
+let sideInfo = document.querySelector(".side-info");
 let bookingSection = document.querySelector(".main-info");
+let loginPage = document.querySelector(".login-page");
+let loginButton = document.querySelector(".login-button");
 let totalCost = document.querySelector(".total-cost");
 let dashTitle = document.querySelector(".dashboard-title");
 let cardTitle = document.querySelector(".card-titles");
 let calendar = document.querySelector(".calendar");
 let checkDate = document.querySelector(".check-date-button");
 let roomTypeDropdown = document.querySelector(".room-drop-down");
-let bookButton = document.querySelector(".book-now");
+let inputOne = document.querySelector(".login-input-one")
+let inputTwo = document.querySelector(".login-input-two")
+let loginError = document.querySelector(".login-error")
 
-test.addEventListener("click", () => {
+loginButton.addEventListener("click", () => {
+    let userNumber = inputOne.value.split('r')
+    if (validateUser()) {
+  currentUser = hotel.allCustomers[userNumber[1] - 1]
+  hideLogin()
+  unhideDashboard()
   createTitle();
   createTotal();
   createBookingCard();
   calendar.min = dayjs(Date.now()).format("YYYY-MM-DD");
   calendar.value = dayjs(Date.now()).format("YYYY-MM-DD");
+    } else {
+        inputOne.value=""
+        inputTwo.value=""
+        loginError.innerText = "Invalid credentials, please check your username and password"
+    }
 });
 
 checkDate.addEventListener("click", () => {
@@ -40,7 +55,6 @@ checkDate.addEventListener("click", () => {
 });
 
 bookingSection.addEventListener("click", (event) => {
-  // console.log(event.target.dataset.room)
   if (event.target.dataset.room) {
     let userId = currentUser.id;
     let calendarValue = calendar.value.split("-").join("/");
@@ -50,20 +64,20 @@ bookingSection.addEventListener("click", (event) => {
       date: calendarValue,
       roomNumber: roomNumber,
     };
-    let response = bookingPost(somedata);
-    response
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error("error");
-        }
-      })
+    bookingPost(somedata)
       .then(() => {
-        const result = allBookings();
-        hotel.bookings = result;
-      });
-    console.log(somedata);
+        allBookings().then((data) => {
+            hotel.bookings = data.bookings;
+        }).then(() => {
+                updateSingleUser()
+                clearChildren(bookingSection)
+                createBookingCard()
+        })
+    })
   }
 });
+
+// inputOne.value.substring(1,8) === "customer" && inputOne.value.substring(9, 10) === 40 && inputTwo === "overlook2021"
 
 // This is the JavaScript entry file - your code begins here
 // Do not delete or rename this file ********
@@ -76,8 +90,26 @@ Promise.all([allCustomers(), allRooms(), allBookings()]).then((values) => {
   hotel = new Hotel(values[0].customers, values[1].rooms, values[2].bookings);
   hotel.generateCustomers();
   createCustomer();
-  currentUser = hotel.allCustomers[2];
+  currentUser = hotel.allCustomers[10];
 });
+
+function validateUser() {
+    let customerCheck = inputOne.value.substring(0,8)
+    let splitInput = inputOne.value.split('r')
+    if (splitInput[1] > 50) {
+        return false
+    } 
+    if (splitInput[1] < 1) {
+        return false
+    }
+    if (customerCheck !== "customer") {
+        return false
+    }
+    if (inputTwo.value !== 'overlook2021') {
+        return false
+    }
+    return true
+}
 
 function createBookingCardByDateAndFilter(rooms) {
   bookingSection.innerHTML = "";
@@ -95,6 +127,7 @@ function createBookingCardByDateAndFilter(rooms) {
 }
 
 function createBookingCard() {
+    bookingSection.innerHTML = ""
   currentUser.userBookings.forEach((booking) => {
     bookingSection.innerHTML += `<div class = 'booking-card'>
         <p>Date: ${booking.date}</p>
@@ -111,9 +144,26 @@ function createTotal() {
   totalCost.innerHTML = `Total Spent: ${currentUser.calculateTotal()}`;
 }
 
+function updateSingleUser() {
+    hotel.sigleCustomerBookingUpdate(currentUser)
+}
+
 function createCustomer() {
   hotel.allCustomers.forEach((customer) => {
     hotel.customerBookings(customer);
     hotel.customerRooms(customer);
   });
+}
+
+function clearChildren(node) {
+    node.innerHTML = ""
+}
+
+function hideLogin() {
+    loginPage.classList.add('hidden')
+}
+
+function unhideDashboard() {
+    bookingSection.classList.remove('hidden')
+    sideInfo.classList.remove('hidden')
 }

@@ -22,7 +22,7 @@ const allRooms = () =>
     })
     .catch((err) => console.log(err));
 
-const allBookings = () =>
+const allBookings = () => 
   fetch("http://localhost:3001/api/v1/bookings")
     .then((response) => {
       if (response.ok) {
@@ -33,6 +33,7 @@ const allBookings = () =>
     })
     .catch((err) => console.log(err));
 
+
 const bookingPost = (somedata) =>
   fetch("http://localhost:3001/api/v1/bookings", {
     method: "POST",
@@ -42,11 +43,11 @@ const bookingPost = (somedata) =>
     },
   })
     .then((response) => {
-      if (response.ok) {
-        return { ok: true };
-      } else {
-        throw Error(response.statusText);
-      }
+        if (response.ok) {
+            return response.json();
+        } else {
+            throw Error(response.statusText);
+        }
     })
     .catch((err) => console.log(err));
 
