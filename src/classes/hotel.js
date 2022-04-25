@@ -17,7 +17,7 @@ class Hotel {
     getRooms() {
         return this.rooms
     }
-    sigleCustomerBookingUpdate(currentUser) {
+    singleCustomerBookingUpdate(currentUser) {
         let updatedBookings = this.getBookings()
         currentUser.updateBookings(updatedBookings)
         // let updatedRooms = this.getRooms()
