@@ -7,20 +7,37 @@
   <title>Overlook Hotel</title>
 </head>
 <body>
-  <nav>
-    <h1 class="dashboard-title">Thanks for choosing Overlook Hotel, username</h1>
+  <nav class="nav-title">
+    <h1 class="dashboard-title">Welcome to OverLook Hotel</h1>
   </nav>
   <main>
+    <section class="login-page">
+    <section class="login-section">
+      <div class = "login-box">
+        <section class="login-title-box">
+        <p class="login-title">Please Login</p>
+        </section>
+        <section class="label-input-box">
+        <label class="login-label">Username:</label><input class="login-input-one">
+        <label class="login-label">Password:</label><input class="login-input-two">
+       </section>
+       <section class="submit-button-box">
+        <p class="login-error"></p>
+        <button class="login-button">Login</button>
+      </section>
+      </div>
+    </section>
+  </section>
     <section>
-    <aside class = "side-info">
-      <button class = "test-button">click meeee</button>
+    <aside class="side-info hidden">
+      <button class="test-button">click meeee</button>
       <section>
-        <p class ='total-cost'>Total Spent</p>
+        <p class='total-cost'>Total Spent</p>
       </section>
       <section>
         <input class="calendar" type="date" id="start" name="select-date" value="2022-01-22" min="2022-06-01">
       </section>
-      <sections>
+      <section>
         <select class='room-drop-down' name="dropdown-room-types" id="room-dropdown">
           <option value="choose" name="dropdown-room-types">Choose Room Type</option>
           <option value="residential suite" name="dropdown-room-types">Residential Suite</option>
@@ -34,7 +51,7 @@
       </section>
     </aside>
     </section>
-    <section class = "main-info scrollable">
+    <section class = "main-info scrollable hidden">
       <div class = "card-titles">These are your current and past bookings</div> 
       <!-- <div class = 'booking-card'>
         <p>Room Type: 'singel room'</p>
