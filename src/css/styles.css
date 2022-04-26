@@ -1,7 +1,10 @@
+/* ~~~~~~~Imports~~~~~~~~~ */
+
 @import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@500&display=swap');
 
+/* ~~~~~~~Main Tags~~~~~~~~~ */
+
 * {
-  /* border: 1px solid black; */
   color: white;
 }
 
@@ -46,6 +49,8 @@ h1 {
   margin-left: 30px;
   font-size: 46px;
 }
+
+/* ~~~~~~~Login Page~~~~~~~~~ */
 
 .login-page {
   display: flex;
@@ -139,6 +144,9 @@ h1 {
   font-size: 18px;
   color: black;
 }
+
+/* ~~~~~~~Main Dashboard~~~~~~~~~ */
+
 .side-info {
   display: flex;
   flex-direction: column;

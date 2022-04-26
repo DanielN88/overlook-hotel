@@ -8,7 +8,7 @@
 </head>
 <body>
   <nav class="nav-title">
-    <h1 class="dashboard-title">Welcome to OverLook Hotel</h1>
+    <h1 class="dashboard-title" tabindex="0">Welcome to OverLook Hotel</h1>
   </nav>
   <main>
     <section class="login-page">
@@ -18,8 +18,8 @@
         <p class="login-title">Please Login</p>
         </section>
         <section class="label-input-box">
-        <label class="login-label">Username:</label><input class="login-input-one" value="customer20">
-        <label class="login-label">Password:</label><input class="login-input-two" type="password" value="overlook2021">
+        <label class="login-label">Username:</label><input class="login-input-one">
+        <label class="login-label">Password:</label><input class="login-input-two" type="password">
        </section>
        <section class="submit-button-box">
         <p class="login-error"></p>
@@ -35,7 +35,7 @@
         <p class='total-cost' tabindex="0">Total Expenditures</p>
       </section>
       <section>
-        <label for="select-date" class="calendar-label" tabindex="0">Search by date</label>
+        <label for="start" class="calendar-label" tabindex="0">Search by date</label>
         <input class="calendar" type="date" id="start" name="select-date" value="2022-01-22" min="2022-06-01">
         <p class='calendar-error hidden'>Please select a valid date*</p>
       </section>
@@ -60,10 +60,6 @@
       <div class = "card-titles">These are your current and past bookings</div> 
     </section>
   </main>
-  <!-- <img src="./images/turing-logo.png" alt="turing logo"> -->
-  
-  <!-- Do not include the scripts.js or class files here - it is done by the webpack server -->
   <script src="bundle.js"></script>
-
 </body>
 </html>
