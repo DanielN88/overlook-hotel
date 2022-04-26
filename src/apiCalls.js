@@ -1,7 +1,6 @@
-const BASE_URL = "http://localhost:3001";
 
 const allCustomers = () =>
-  fetch(`${BASE_URL}/api/v1/customers`)
+  fetch('http://localhost:3001/api/v1/customers')
     .then((response) => {
       if (response.ok) {
         return response.json();

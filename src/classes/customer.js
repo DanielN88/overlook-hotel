@@ -17,6 +17,7 @@ class Customer {
     }
 
     updateRooms(rooms) {
+        this.userRooms = []
         rooms.forEach((room) => {
             this.userBookings.forEach(booking => {
                 if (room.number === booking.roomNumber) {
