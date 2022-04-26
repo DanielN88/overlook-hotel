@@ -67,9 +67,6 @@ describe('Customer', () => {
 });
 
 it('Should filter all available rooms by date', () => {
-  // customer.filterByDate(hotel, calendar)
-  // customer.updateBookings(bookings)
-  // customer.updateRooms(rooms)
 expect(customer.filterByDate(hotel, calendar)).to.deep.equal([
   {
     number: 12,

@@ -18,8 +18,8 @@
         <p class="login-title">Please Login</p>
         </section>
         <section class="label-input-box">
-        <label class="login-label">Username:</label><input class="login-input-one">
-        <label class="login-label">Password:</label><input class="login-input-two">
+        <label class="login-label">Username:</label><input class="login-input-one" value="customer20">
+        <label class="login-label">Password:</label><input class="login-input-two" type="password" value="overlook2021">
        </section>
        <section class="submit-button-box">
         <p class="login-error"></p>
@@ -30,12 +30,14 @@
   </section>
     <section>
     <aside class="side-info hidden">
-      <button class="test-button">click meeee</button>
+      <button class="test-button hidden">Mock Login Button</button>
       <section>
-        <p class='total-cost' tabindex="0">Total Spent</p>
+        <p class='total-cost' tabindex="0">Total Expenditures</p>
       </section>
       <section>
+        <label for="select-date" class="calendar-label" tabindex="0">Search by date</label>
         <input class="calendar" type="date" id="start" name="select-date" value="2022-01-22" min="2022-06-01">
+        <p class='calendar-error hidden'>Please select a valid date*</p>
       </section>
       <section>
         <select class='room-drop-down' name="dropdown-room-types" id="room-dropdown">
@@ -46,7 +48,10 @@
           <option value="single room" name="dropdown-room-types">Single Room</option>
         </select>
         <section>
-          <button class="check-date-button">Check date for Rooms</button>
+          <button class="check-date-button">Check Date for Rooms</button>
+        </section>
+        <section>
+          <button class="return-to-bookings-button">Return to Bookings</button>
         </section>
       </section>
     </aside>

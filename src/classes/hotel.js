@@ -20,8 +20,8 @@ class Hotel {
     singleCustomerBookingUpdate(currentUser) {
         let updatedBookings = this.getBookings()
         currentUser.updateBookings(updatedBookings)
-        // let updatedRooms = this.getRooms()
-        // currentUser.updateRooms(updatedRooms)
+        let updatedRooms = this.getRooms()
+        currentUser.updateRooms(updatedRooms)
     }
     customerBookings(currentCustomer) {
         let passBookings = this.getBookings()
