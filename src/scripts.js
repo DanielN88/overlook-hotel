@@ -76,7 +76,6 @@ checkDate.addEventListener("click", () => {
   }
   let totalRooms = currentUser.filterByDate(hotel, calendar);
   let filteredRooms = currentUser.filterByRoom(roomTypeDropdown, totalRooms);
-  console.log(totalRooms);
   if (!totalRooms.length) {
     clearChildren(bookingSection);
     bookingSection.innerHTML += `<div class='card-titles' tabindex="0">We are very sorry that there are no bookings available. Please try adjusting your search parameters.</div>`;
